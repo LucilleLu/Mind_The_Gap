@@ -62,6 +62,10 @@ public class ArrivalBoard implements Iterable<Arrival> {
         arrivals.clear();
     }
 
+    public List<Arrival> getArrivals() {
+        return arrivals;
+    }
+
     /**
      * Two ArrivalBoards are equal if their lines are equal and travel directions are equal
      */

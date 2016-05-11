@@ -201,6 +201,7 @@ public class MapDisplayFragment extends Fragment implements MapEventsReceiver, I
         else {
             Log.i(MDF_TAG, "Location cannot be recovered");
         }
+
         updateOverlays();
     }
 
@@ -335,6 +336,10 @@ public class MapDisplayFragment extends Fragment implements MapEventsReceiver, I
         //TODO: Phase 2 Task 6
         Drawable stnIconDrawable = getResources().getDrawable(R.drawable.stn_icon);
         Drawable closestStnIconDrawable = getResources().getDrawable(R.drawable.closest_stn_icon);
+        if (nearestStnMarker != null) {
+            nearestStnMarker.setIcon(stnIconDrawable);
+        }
+
         if (nearest != null) {
             for (Marker marker : stnClusterer.getItems()) {
                 if (nearest.getName().equals(marker.getTitle())) {
@@ -358,6 +363,21 @@ public class MapDisplayFragment extends Fragment implements MapEventsReceiver, I
         locationListener.onLocationChanged(nearestStn);
         updateMarkerOfNearest(nearestStn);
     }
+
+//    private boolean sameLine(Station station1, Station station2) {
+//        return station1.getLines().equals(station2.getLines());
+//    }
+//
+//    private void handleSameLineStation(Station station, Station lastSelected) {
+//        if (sameLine(station, lastSelected)) {
+//            for (Marker marker : stnClusterer.getItems()) {
+//                if (station.getName().equals(marker.getTitle())) {
+//                    lastSelected = StationManager.getInstance().getSelected();
+//                }
+//            }
+//        }
+//    }
+
 
     /**
      * Get width of line used to plot tube line based on zoom level

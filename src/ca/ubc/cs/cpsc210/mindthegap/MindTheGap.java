@@ -108,6 +108,7 @@ public class MindTheGap extends Activity implements LocationListener, StationSel
         }
     }
 
+
     /**
      * Determine if my closest station and bot's closest station are served by the same line
      * (not necessarily the same branch of a line)
@@ -182,6 +183,7 @@ public class MindTheGap extends Activity implements LocationListener, StationSel
             Toast.makeText(this, "Station not found on managed lines", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     /**
      * Start activity to show arrival boards to user

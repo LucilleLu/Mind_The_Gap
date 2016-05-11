@@ -51,7 +51,7 @@ public class ArrivalBoardListFragment extends ListFragment {
         //TODO: Phase 2 Task 8
         StationManager stationManager = StationManager.getInstance();
         ArrayList<ArrivalBoard> arrivalBoards = (ArrayList<ArrivalBoard>)stationManager.getSelected().getArrivalBoards();
-        return new ArrayList<ArrivalBoard>();
+        return arrivalBoards;
     }
 
     /**

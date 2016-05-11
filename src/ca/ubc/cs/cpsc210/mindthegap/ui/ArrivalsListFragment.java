@@ -12,6 +12,7 @@ import ca.ubc.cs.cpsc210.mindthegap.model.ArrivalBoard;
 import ca.ubc.cs.cpsc210.mindthegap.model.StationManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Fragment to display list of arrivals at selected station for particular line
@@ -43,7 +44,15 @@ public class ArrivalsListFragment extends ListFragment {
      */
     public ArrayList<Arrival> getArrivalsForSelectedStationOnLineInDirection(String lineId, String travelDirn) {
         //TODO: Phase 2 Task 9
-
+        StationManager stationManager = StationManager.getInstance();
+        List<ArrivalBoard> arrivalBoards = stationManager.getSelected().getArrivalBoards();
+        for (ArrivalBoard arrivalBoard: arrivalBoards) {
+            if (arrivalBoard.getLine().getId().equals(lineId)
+                    &&
+                    arrivalBoard.getTravelDirn().equals(travelDirn)) {
+                return (ArrayList<Arrival>)arrivalBoard.getArrivals();
+            }
+        }
         return new ArrayList<Arrival>();
     }
 

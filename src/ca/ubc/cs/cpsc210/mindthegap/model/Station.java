@@ -118,6 +118,8 @@ public class Station implements Iterable<ArrivalBoard> {
         return arrivalBoards;
     }
 
+
+
     /**
      * Two stations are equal if their ids are equal
      */
